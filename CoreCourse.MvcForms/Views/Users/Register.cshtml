@@ -2,6 +2,14 @@
 @{
     ViewData["Title"] = "Registration";
 }
+@section Scripts{
+    <environment names="Development">
+        <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/lib/jquery-validation/dist/additional-methods.min.js"></script>
+    </environment>
+}
 
 <div class="row">
     <div class="col-md-12">
