@@ -1,0 +1,66 @@
+﻿@model InputsVm
+@{
+    ViewData["Title"] = "Input Summary";
+}
+
+<h2>Received Data:</h2>
+<table class="table table-condensed table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><label asp-for="Email"></label></td>
+            <td>@Model.Email</td>
+        </tr>
+        <tr>
+            <td><label asp-for="Password"></label></td>
+            <td>@Model.Password</td>
+        </tr>
+        <tr>
+            <td><label asp-for="Url"></label></td>
+            <td>@Model.Url</td>
+        </tr>
+        <tr>
+            <td><label asp-for="PhoneNumber"></label></td>
+            <td>@Model.PhoneNumber</td>
+        </tr>
+        <tr>
+            <td><label asp-for="FavoriteInt"></label></td>
+            <td>@Model.FavoriteInt</td>
+        </tr>
+        <tr>
+            <td><label asp-for="PI"></label></td>
+            <td>@Model.PI</td>
+        </tr>
+        <tr>
+            <td><label asp-for="EnteredDateAndTime"></label></td>
+            <td>@Model.EnteredDateAndTime</td>
+        </tr>
+        <tr>
+            <td><label asp-for="EnteredDate"></label></td>
+            <td>@Model.EnteredDate</td>
+        </tr>
+        <tr>
+            <td><label asp-for="EnteredTime"></label></td>
+            <td>@Model.EnteredTime</td>
+        </tr>
+        <tr>
+            <td><label asp-for="ShortDescription"></label></td>
+            <td>@Model.ShortDescription</td>
+        </tr>
+        <tr>
+            <td><label asp-for="ShowSummary"></label></td>
+            <td>@Model.ShowSummary</td>
+        </tr>
+        <tr>
+            <td><label asp-for="ScreenResolution"></label></td>
+            <td>@Model.ScreenResolution</td>
+        </tr>
+    </tbody>
+</table>
+
+<a asp-action="Index">&laquo; Go Back</a>

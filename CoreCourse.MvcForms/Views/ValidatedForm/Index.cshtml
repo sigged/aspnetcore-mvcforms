@@ -1,0 +1,40 @@
+﻿@model ValidatedFormVm
+@{
+    ViewData["Title"] = "Validated Form";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Validated Form</h2>
+        <div>
+            <p>This page shows a basic validated form</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>Enter game code to play</h3>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form method="post">
+            <div class="form-group form-group-sm">
+                <label asp-for="Username"></label>*
+                <input asp-for="Username" class="form-control">
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group form-group-sm">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group form-group-lg">
+                <label asp-for="Code"></label>*
+                <input asp-for="Code" class="form-control">
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-lg btn-primary"><b>Enter game</b></button>
+            </div>
+            
+        </form>
+    </div>
+</div>

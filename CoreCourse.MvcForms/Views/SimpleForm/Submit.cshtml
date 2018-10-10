@@ -1,0 +1,14 @@
+﻿@model SimpleFormSubmitVm
+@{
+    ViewData["Title"] = "Simple Form Submit";
+}
+
+<h2>Received Data:</h2>
+
+<div>
+    <div>Method: <b>@Model.Method</b></div>
+    <div>Email: <b>@Model.Data.Email</b></div>
+    <div>Password: <b>@Model.Data.Password</b></div>
+    <div>Remember? <b>@Model.Data.RememberMe</b></div>
+</div>
+

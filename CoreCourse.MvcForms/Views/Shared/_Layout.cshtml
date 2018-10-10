@@ -15,6 +15,7 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+    @RenderSection("Head", required: false)
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -29,11 +30,18 @@
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">CoreCourse.MvcForms</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                <ul class="nav navbar-nav hidden visible-xs visible-lg">
+                    <partial name="NavigationLinks" />
                 </ul>
+                <div class="dropdown hidden-xs hidden-lg pull-right" style="margin-top:10px;">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                        Choose example page
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <partial name="NavigationLinks" />
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
@@ -44,7 +52,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2018 - CoreCourse.MvcForms</p>
+            <p>&copy; @DateTime.Today.Year - CoreCourse.MvcForms @RenderSection("footer", false)</p>
         </footer>
     </div>
 

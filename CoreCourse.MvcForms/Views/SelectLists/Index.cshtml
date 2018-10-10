@@ -1,0 +1,61 @@
+﻿@using CoreCourse.MvcForms.Controllers
+@model SelectListsVm
+@{
+    ViewData["Title"] = "Select Lists";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Select Lists</h2>
+        <div>
+            <p>This page shows how to use the Select Tag Helper in different ways</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h3>Simple Dropdown</h3>
+        <form asp-action="ShowPicks" method="post">
+            <div class="form-group">
+                <label asp-for="SimpleSelect.SelectedCountryId"></label><br />
+                <select asp-for="SimpleSelect.SelectedCountryId"
+                        asp-items="Model.SimpleSelect.Countries">
+                </select>
+            </div>
+            <button type="submit" class="btn btn-default">Pick country</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <h3>Option Groups</h3>
+        <form asp-action="ShowPicks" method="post">
+            <div class="form-group">
+                <label asp-for="GroupedSelect.SelectedCountryId"></label><br />
+                <select asp-for="GroupedSelect.SelectedCountryId"
+                        asp-items="Model.GroupedSelect.Countries"></select>
+            </div>
+            <button type="submit" class="btn btn-default">Pick country</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <h3>Multiple Selection List</h3>
+        <form asp-action="ShowPicks" method="post">
+            <div class="form-group">
+                <label asp-for="MultipleSelect.SelectedCountryIds"></label><br />
+                <select asp-for="MultipleSelect.SelectedCountryIds"
+                        asp-items="Model.MultipleSelect.Countries"></select>    
+            </div>
+            <button type="submit" class="btn btn-default">Pick countries</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <h3>Enum to Select</h3>
+        <form asp-action="ShowPicks" method="post">
+            <div class="form-group">
+                <label asp-for="FavoriteLanguage"></label><br />
+                <select asp-for="FavoriteLanguage"
+                        asp-items="Html.GetEnumSelectList<ProgrammingLanguages>()"></select>
+            </div>
+            <button type="submit" class="btn btn-default">Choose language</button>
+        </form>
+    </div>
+</div>
