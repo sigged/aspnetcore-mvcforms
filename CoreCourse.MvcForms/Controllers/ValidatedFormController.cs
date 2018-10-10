@@ -9,6 +9,8 @@ namespace CoreCourse.MvcForms.Controllers
 {
     public class ValidatedFormController : Controller
     {
+        private string[] bannedIps = new string[] { "127.0.0.1", "::1" };
+
         public IActionResult Index()
         {
             return View();
@@ -17,6 +19,14 @@ namespace CoreCourse.MvcForms.Controllers
         [HttpPost]
         public IActionResult Index(ValidatedFormVm userVm)
         {
+            //check if users' ip is banned
+            string remoteIp = HttpContext.Connection.RemoteIpAddress.ToString();
+            if (bannedIps.Contains(remoteIp))
+            {
+                ModelState.AddModelError(string.Empty,
+                    $"Your IP {remoteIp} has been temporarily banned. Please try again later.");
+            }
+            
             if (ModelState.IsValid) 
             {
                 return new RedirectToActionResult("CodeSuccess", "ValidatedForm", null);
