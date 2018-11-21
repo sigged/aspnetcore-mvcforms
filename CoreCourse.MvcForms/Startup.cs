@@ -55,12 +55,13 @@ namespace CoreCourse.MvcForms
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    name: "simpleformroute",
+                    template: "SimpleForm/SubmitWithRoute",
+                    defaults: new { controller = "SimpleForm", action = "SubmitWithRoute" });
 
                 routes.MapRoute(
-                    name: "simpleformroute",
-                    template: "SimpleForm/SubmitWithRoute");
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
